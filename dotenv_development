@@ -1,0 +1,7 @@
+REPO_VERSION=887ef686a6e7fe6b28a021e9f17c3deb63727380
+SESSION_SECRET=23ghjgh289ghdfagkjhg8qa4379ghsrtlutjereaertq4t897897y
+
+MYSQL_HOST=mariadb
+MYSQL_DATABASE=meter_reader
+MYSQL_USER=meter_reader
+MYSQL_PASSWORD=meter_reader

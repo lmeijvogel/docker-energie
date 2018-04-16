@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mariadb:
+    env_file: "./dotenv_development"
+  runner:
+    build: ./runner
+    env_file: "./dotenv_development"
+    environment:
+      - ENVIRONMENT=development
+    volumes:
+      - ./database.yml:/root/meter-reader-api/database.yml:ro
+    depends_on:
+      - mariadb
+  api:
+    build: ./api
+    env_file: "./dotenv_development"
+    environment:
+      - ENVIRONMENT=development
+      - RACK_ENV=production
+
+    volumes:
+      - ./database.yml:/root/meter-reader-api/database.yml:ro
+    depends_on:
+      - mariadb
+    ports:
+      - "localhost:3000:3000"

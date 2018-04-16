@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mariadb:
+    image: "mariadb"
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: meter_reader
+      MYSQL_USER: meter_reader
+      MYSQL_PASSWORD: meter_reader
+  init-db:
+    build: './init-db'
+    environment:
+      MYSQL_DATABASE: meter_reader
+      MYSQL_USER: meter_reader
+      MYSQL_PASSWORD: meter_reader
+    depends_on:
+      - mariadb
+
